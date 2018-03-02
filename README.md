@@ -8,7 +8,7 @@ This is an extension to play-json module of play framework.
 There is always necessity to write explicitly implicit formats for models that are needed to transform entity from/to json.
 
 ## Solution
-**@genFormats** annotation was created to solve this problem. This annotation generate implicit formats automatically.
+**@genFormats** annotation was created to solve this problem. This annotation generates implicit formats automatically.
 
 ## Example
 
