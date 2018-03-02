@@ -1,0 +1,11 @@
+language: scala
+
+scala:
+  - 2.12.4
+
+jdk:
+  - oraclejdk8
+
+script:
+  - sbt ++$TRAVIS_SCALA_VERSION clean compile test
+  - sbt ++$TRAVIS_SCALA_VERSION "project examples" test
