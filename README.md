@@ -1,5 +1,7 @@
 # play-json-meta
 
+[![Build Status](https://travis-ci.org/kkrzys/play-json-meta.svg?branch=master)](https://travis-ci.org/kkrzys/play-json-meta)
+
 This is an extension to play-json module of play framework.
 
 ## Problem
