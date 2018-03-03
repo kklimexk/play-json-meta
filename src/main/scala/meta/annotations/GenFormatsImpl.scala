@@ -50,7 +50,11 @@ object GenFormatsImpl {
     val memberType = Type.Name(param.decltpe.map(_.toString()).get)
     memberType match {
       case Type.Name(value) if value.startsWith("Option") =>
-        (Type.Name(memberType.value.split(Array('[', ']'))(1)), true)
+        val memberTypeElements = memberType.value.split(Array('[', ']')).drop(1)
+        val res =
+          memberTypeElements.mkString("[") + (1 until memberTypeElements.length).foldLeft("")((acc, _) => acc + "]")
+
+        (Type.Name(res), true)
       case _ => (memberType, false)
     }
   }
