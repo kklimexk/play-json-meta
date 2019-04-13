@@ -31,9 +31,13 @@ class genFormats extends StaticAnnotation {
         val formatImplicitVal = GenFormatsImpl.createFormatImplicitVal(name)
         val formatOImplicitVal = GenFormatsImpl.createOFormatImplicitVal(name)
 
-        val body = Seq(q"$readsVal",q"$writesVal", q"$formatImplicitVal", q"$formatOImplicitVal")
+        val body = Seq(q"$readsVal", q"$writesVal", q"$formatImplicitVal", q"$formatOImplicitVal")
 
-        val companion = q"object ${Term.Name(name.value)} { ..$body }"
+        val companion =
+          q"""object ${Term.Name(name.value)} {
+                                import play.api.libs.functional.syntax._
+                                ..$body
+                            }"""
         Term.Block(Seq(cls, companion))
       case _ =>
         println(defn.structure)
